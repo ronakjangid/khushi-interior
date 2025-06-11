@@ -1,0 +1,404 @@
+/* ==========================================================================
+   1. VARIABLES
+   ========================================================================== */
+   :root {
+    --accent-color: #0d0d0d;
+    --bs-gray-100: #f3f3f3;
+    --bs-gray-200: #e7e5e2;
+    --bs-primary: #787d62;
+    --bs-secondary: #F6F5F2;
+    --bs-primary-rgb: 120, 125, 98;
+    --bs-body-bg-rgb: 246, 245, 242;
+    --bs-light: #fff;
+    --bs-dark: #000;
+    --navbar-color-color: #131814;
+    --swiper-theme-color: #787d62 !important;
+    --swiper-pagination-color: #787d62 !important;
+  }
+  
+  /* Mobile-specific header height (below 600px) */
+  @media screen and (max-width: 600px) {
+    :root {
+      --header-height: 100px;
+      --header-height-min: 80px;
+    }
+  }
+
+
+  /* ==========================================================================
+     Loader
+     ========================================================================== */
+  /* Fullscreen overlay */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Hide animation */
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Red spinner */
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid red;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Prevent scroll while loading */
+body.loading {
+  overflow: hidden;
+}
+
+  /* ==========================================================================
+     2. GENERAL TYPOGRAPHY
+     ========================================================================== */
+  
+  /* Reset and box-sizing */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  html {
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  
+  body {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--accent-color);
+    margin: 0;
+    padding-top: 140px; /* offset for fixed navbar */
+    overflow-x: hidden;
+  }
+  
+    .phone-number:hover,
+  .phone-number:focus,
+  .phone-number:active {
+  text-decoration: none;
+  color: inherit; /* Or specify a fixed color */
+}
+
+  
+  ul.inner-list li {
+    font-size: 1.2em;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  /* Link styling */
+  a {
+    color: var(--bs-dark);
+    text-decoration: none;
+    transition: 0.3s color ease-out;
+  }
+  
+  /* Form & component focus cleanup */
+  .form-control:focus,
+  .accordion-button:focus {
+    box-shadow: none;
+  }
+  
+  /* Background color helpers */
+  .bg-secondary {
+    background: var(--bs-secondary) !important;
+  }
+  
+  .bg-dark {
+    background: var(--bs-dark) !important;
+  }
+  
+  .bg-light {
+    background: rgba(var(--bs-body-bg-rgb), var(--bs-bg-opacity)) !important;
+  }
+  
+  .bg-gray-1 {
+    background-color: var(--bs-gray-100) !important;
+  }
+  
+  /* ==========================================================================
+     3. SECTION SPACING
+     ========================================================================== */
+  
+  /* Padding */
+  .padding-small {
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+  
+  .padding-medium {
+    padding-top: 4em;
+    padding-bottom: 4em;
+  }
+  
+  .padding-large {
+    padding-top: 7em;
+    padding-bottom: 7em;
+  }
+  
+  /* Margin */
+  .margin-small {
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+  
+  .margin-medium {
+    margin-top: 5em;
+    margin-bottom: 5em;
+  }
+  
+  .margin-large {
+    margin-top: 7em;
+    margin-bottom: 7em;
+  }
+  
+  /* Responsive spacing adjustment */
+  @media only screen and (max-width: 768px) {
+    .margin-small,
+    .margin-medium,
+    .margin-large {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+  }
+  
+  /* Text font light */
+  .textlight {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  /* Container width override */
+  .container-fluid {
+    max-width: 1540px;
+  }
+  
+  /* ==========================================================================
+     4. SITE STRUCTURE
+     ========================================================================== */
+  
+  /* Sticky utility class */
+  .sticky {
+    position: sticky;
+    top: 0;
+  }
+  
+  /* ==========================================================================
+     5. HEADER
+     ========================================================================== */
+  
+  /* Navbar styling */
+  .navbar-custom {
+    background-color: rgba(var(--bs-body-bg-rgb), var(--bs-bg-opacity)) !important;
+    padding: 30px 0;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+
+  }
+  
+  .nav-link {
+    color: #333;
+    margin-right: 1rem;
+    font-weight: 500;
+  }
+  
+  .nav-link.active,
+  .nav-link:hover {
+    color: #b46b3d;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+    color: #000;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-brand img {
+    height: 30px;
+    margin-right: 10px;
+  }
+  
+  #mainlogo {
+    height: 80px;
+  }
+  
+  /* On smaller screens, change navbar to absolute */
+  @media (max-width: 1050px) {
+    .fixed-top {
+      position: absolute;
+    }
+
+  }
+  
+  /* Phone number styling */
+  .phone-number {
+    font-family: 'Poppins';
+    font-weight: 200;
+    font-size: 20px;
+  }
+
+  @media (max-width: 450px) {
+    .phone-number {
+      font-size: 15px;
+    }
+  }
+  
+  .animated-number {
+    display: inline-block;
+    position: relative;
+    animation: burstAnim 5s ease-in-out infinite;;
+  }
+  
+  @keyframes burstAnim {
+    0% { transform: scale(1); opacity: 1; }
+    10% { transform: scale(1.15); opacity: 0.9; }
+    20% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+
+
+  /* Navbar toggler override */
+  .navbar-toggler {
+    all: unset;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* ==========================================================================
+     6. BILLBOARD / HERO SECTION
+     ========================================================================== */
+  
+  /* Billboard scrolling container */
+  #scrolling {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Background video layer */
+  .bg-video-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    pointer-events: none;
+  }
+  
+  /* Dark overlay over video */
+  .bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+  }
+  
+  /* Main text style */
+  #maintext {
+    font-size: 70px;
+    width: max-content;
+  }
+  
+  .estimatebutton {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 22px;
+  }
+
+  .estimatebutton:focus,
+  .estimatebutton:active{
+    outline: none;
+    box-shadow: none;
+  }
+  
+  /* Responsive typography */
+  @media (max-width: 768px) {
+    .bg-video-layer {
+      object-fit: cover;
+      position: absolute;
+    }
+  
+    #maintext {
+      font-size: 50px;
+    }
+  
+    .estimatebutton {
+      font-size: 15px;
+    }
+  }
+  
+  @media (max-width: 550px) {
+    #maintext {
+      font-size: 30px;
+    }
+  }
+  
+  /* ==========================================================================
+     7. MISC COMPONENTS
+     ========================================================================== */
+  
+  .icon-box-icon {
+    border: 1px solid red;
+    border-radius: 999px;
+  }
+  
+  .lucide {
+    color: red;
+  }
+  
+  .about-image-wrapper {
+    overflow: hidden;
+    animation: floatImage 8s ease-in-out infinite;
+  }
+  
+  /* Floating animation */
+  @keyframes floatImage {
+    0%, 100% {
+      transform: translateY(3px);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  

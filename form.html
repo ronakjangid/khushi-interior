@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Khushi Interior | Form</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="images/fav.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins';
+            min-height: 100vh;
+            color: #1a1a1a;
+            line-height: 1.6;
+            padding-top: 50px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 8px;
+        }
+
+        .form-header p {
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+
+        .progress-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e5e5;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e5e5;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #dc2626, #991b1b);
+            border-radius: 4px;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 16.67%;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid #e5e5e5;
+        }
+
+        .step {
+            display: none;
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step.active {
+            display: block;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .step-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .step-subtitle {
+            color: #6b7280;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .option {
+            background: #fafafa;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option:hover {
+            border-color: #dc2626;
+            transform: translateY(-2px);
+        }
+
+        .option.selected {
+            border-color: #dc2626;
+            color: #1a1a1a;
+        }
+
+        .option-text {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e5e5e5;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #dc2626;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Poppins';
+        }
+
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #6b7280;
+            border: 2px solid #e5e5e5;
+            font-family: 'Poppins';
+        }
+
+        .btn-secondary:hover {
+            background: #e5e5e5;
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: #dc2626;
+            color: white;
+            border: 2px solid #dc2626;
+            box-shadow: none;
+        }
+
+        .btn-primary:hover {
+            border: 2px solid #dc2626;
+            background: transparent;
+            color: #dc2626;
+            box-shadow: none;
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .estimate-display {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .estimate-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 20px;
+            transition: all 0.5s ease;
+        }
+
+        .estimate-note {
+            color: #6b7280;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .whatsapp-btn {
+            background: #dc2626;
+            color: white;
+            padding: 18px 36px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid #dc2626;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            background: transparent;
+            color: #dc2626;
+            border: 2px solid #dc2626;
+        }
+
+        .error {
+            color: #ef4444;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e5e5e5;
+            border-top: 4px solid #dc2626;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            color: #10b981;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .form-header h1 {
+                font-size: 2rem;
+            }
+
+            .form-card {
+                padding: 25px;
+            }
+
+            .step-title {
+                font-size: 1.5rem;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                flex-direction: column-reverse;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 18px;
+            }
+
+            .estimate-amount {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .options-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    
+    <div class="container">
+        <div class="logoimg" style="display: flex; justify-content: center; margin-bottom: 30px;">
+          <a href="index.html"><img src="images/Logo.png" alt="" style="height: 10vh;"></a>  
+        </div>
+        <div class="form-header">
+            <h1>Interior Design Estimate</h1>
+            <p>Get your personalized quote in just a few steps</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Step 1 of 6</div>
+        </div>
+
+        <div class="form-card">
+            <form id="multi-step-form">
+                <!-- Step 1: Space Type -->
+                <div class="step active" data-step="1">
+                    <h2 class="step-title">Select the option that best describes your space.</h2>
+                    <p class="step-subtitle">Choose one from the options below.</p>
+                    
+                    <div class="options-grid">
+                        <div class="option" data-value="flat">
+                            <div class="option-text">Flat/Apartment</div>
+                        </div>
+                        <div class="option" data-value="bungalow">
+                            <div class="option-text">Bungalow</div>
+                        </div>
+                        <div class="option" data-value="office">
+                            <div class="option-text">Office/Corporate</div>
+                        </div>
+                        <div class="option" data-value="hotel">
+                            <div class="option-text">Hotel/Resort</div>
+                        </div>
+                        <div class="option" data-value="healthcare">
+                            <div class="option-text">Healthcare/Education</div>
+                        </div>
+                        <div class="option" data-value="showroom">
+                            <div class="option-text">Showroom/Exhibition</div>
+                        </div>
+                        <div class="option" data-value="other">
+                            <div class="option-text">Other</div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <div></div>
+                        <button type="button" class="btn btn-primary" id="nextBtn" disabled>Next Step</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Space Size -->
+                <div class="step" data-step="2">
+                    <h2 class="step-title">What's the approximate size?</h2>
+                    <p class="step-subtitle">Choose the range that best fits your space</p>
+                    
+                    <div class="options-grid">
+                        <div class="option" data-value="less-500">
+                            <div class="option-text">Less than 500 sq. ft.</div>
+                        </div>
+                        <div class="option" data-value="500-1000">
+                            <div class="option-text">500–1,000 sq. ft.</div>
+                        </div>
+                        <div class="option" data-value="1000-2000">
+                            <div class="option-text">1,000–2,000 sq. ft.</div>
+                        </div>
+                        <div class="option" data-value="2000-plus">
+                            <div class="option-text">2,000+ sq. ft.</div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" class="btn btn-secondary" id="backBtn">Back</button>
+                        <button type="button" class="btn btn-primary" id="nextBtn2" disabled>Next Step</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Design Style -->
+                <div class="step" data-step="3">
+                    <h2 class="step-title">What's your preferred design style?</h2>
+                    <p class="step-subtitle">Select the style that resonates with your vision</p>
+                    
+                    <div class="options-grid">
+                        <div class="option" data-value="modern">
+                            <div class="option-text">Modern & Minimal</div>
+                        </div>
+                        <div class="option" data-value="traditional">
+                            <div class="option-text">Traditional Indian</div>
+                        </div>
+                        <div class="option" data-value="contemporary">
+                            <div class="option-text">Luxury</div>
+                        </div>
+                        <div class="option" data-value="not-sure">
+                            <div class="option-text">We can discuss</div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" class="btn btn-secondary" id="backBtn2">Back</button>
+                        <button type="button" class="btn btn-primary" id="nextBtn3" disabled>Next Step</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Budget -->
+                <div class="step" data-step="4">
+                    <h2 class="step-title">What's your budget range?</h2>
+                    <p class="step-subtitle">Choose the range that works best for you</p>
+                    
+                    <div class="options-grid">
+                        <div class="option" data-value="under-15">
+                            <div class="option-text">Below ₹15 Lakh</div>
+                        </div>
+                        <div class="option" data-value="15-30">
+                            <div class="option-text">₹15–30 Lakh</div>
+                        </div>
+                        <div class="option" data-value="30-60">
+                            <div class="option-text">₹30 Lakh–60 Lakh</div>
+                        </div>
+                        <div class="option" data-value="60-100">
+                            <div class="option-text">₹60 Lakh–1 Crore</div>
+                        </div>
+                        <div class="option" data-value="100-plus">
+                            <div class="option-text">₹1 Crore+</div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" class="btn btn-secondary" id="backBtn3">Back</button>
+                        <button type="button" class="btn btn-primary" id="nextBtn4" disabled>Next Step</button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Timeline -->
+                <div class="step" data-step="5">
+                    <h2 class="step-title">When do you want to start?</h2>
+                    <p class="step-subtitle">Let us know your preferred timeline</p>
+                    
+                    <div class="options-grid">
+                        <div class="option" data-value="immediately">
+                            <div class="option-text">Immediately</div>
+                        </div>
+                        <div class="option" data-value="1-month">
+                            <div class="option-text">Within 1 Month</div>
+                        </div>
+                        <div class="option" data-value="1-3-months">
+                            <div class="option-text">1–3 Months</div>
+                        </div>
+                        <div class="option" data-value="exploring">
+                            <div class="option-text">Just Exploring</div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" class="btn btn-secondary" id="backBtn4">Back</button>
+                        <button type="button" class="btn btn-primary" id="nextBtn5" disabled>Next Step</button>
+                    </div>
+                </div>
+
+                <!-- Step 6: Contact Details -->
+                <div class="step" data-step="6">
+                    <h2 class="step-title">Almost done! Just need your details</h2>
+                    <p class="step-subtitle">We'll send your personalized estimate right away</p>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                        <div class="error" id="nameError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required>
+                        <div class="error" id="phoneError"></div>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" class="btn btn-secondary" id="backBtn5">Back</button>
+                        <button type="button" class="btn btn-primary" id="calculateBtn">Get My Estimate</button>
+                    </div>
+                </div>
+
+                <!-- Final Step: Estimate Display -->
+                <div class="step" data-step="7">
+                    <!-- <div class="success-message" id="successMessage">
+                        Form submitted successfully
+                    </div> -->
+                    <div class="estimate-display">
+                        <h2 class="step-title">Your Estimated Cost:</h2>
+                        <div class="estimate-amount" id="estimateAmount" style="filter: blur(10px);">₹8,75,000</div>
+                        <p class="estimate-note">We’re checking your details to prepare an accurate estimate.
+                            A detailed quote will be provided after a quick consultation.</p>
+                        <a href="#" class="whatsapp-btn" id="whatsappBtn">
+                            CONSULT NOW!
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div class="loading" id="loadingState">
+                    <div class="spinner"></div>
+                    <p>Calculating your estimate...</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        class EstimateForm {
+            constructor() {
+                this.currentStep = 1;
+                this.totalSteps = 6;
+                this.formData = {};
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.updateProgress();
+            }
+
+            setupEventListeners() {
+                // Option selection
+                document.querySelectorAll('.option').forEach(option => {
+                    option.addEventListener('click', (e) => {
+                        const step = e.target.closest('.step');
+                        const stepNum = step.dataset.step;
+                        
+                        // Remove selected class from siblings
+                        step.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                        
+                        // Add selected class to clicked option
+                        option.classList.add('selected');
+                        
+                        // Store the value
+                        const field = this.getFieldName(stepNum);
+                        this.formData[field] = option.dataset.value;
+                        
+                        // Enable next button
+                        const nextBtn = step.querySelector('[id^="nextBtn"]');
+                        if (nextBtn) nextBtn.disabled = false;
+                    });
+                });
+
+                // Navigation buttons
+                document.querySelectorAll('[id^="nextBtn"]').forEach(btn => {
+                    btn.addEventListener('click', () => this.nextStep());
+                });
+
+                document.querySelectorAll('[id^="backBtn"]').forEach(btn => {
+                    btn.addEventListener('click', () => this.prevStep());
+                });
+
+                // Calculate button (final step)
+                document.getElementById('calculateBtn').addEventListener('click', () => {
+                    this.handleCalculate();
+                });
+
+                // Input validation
+                document.getElementById('name').addEventListener('input', () => this.validateName());
+                document.getElementById('phone').addEventListener('input', () => this.validatePhone());
+            }
+
+            getFieldName(stepNum) {
+                const fields = {
+                    '1': 'spaceType',
+                    '2': 'spaceSize',
+                    '3': 'designStyle',
+                    '4': 'budget',
+                    '5': 'timeline'
+                };
+                return fields[stepNum];
+            }
+
+            nextStep() {
+                if (this.currentStep < this.totalSteps) {
+                    this.animateStepTransition(this.currentStep + 1);
+                }
+            }
+
+            prevStep() {
+                if (this.currentStep > 1) {
+                    this.animateStepTransition(this.currentStep - 1);
+                }
+            }
+
+            animateStepTransition(newStep) {
+                const currentStepEl = document.querySelector(`[data-step="${this.currentStep}"]`);
+                const newStepEl = document.querySelector(`[data-step="${newStep}"]`);
+
+                // Fade out current step
+                currentStepEl.style.opacity = '0';
+                currentStepEl.style.transform = 'translateX(-30px)';
+
+                setTimeout(() => {
+                    currentStepEl.classList.remove('active');
+                    newStepEl.classList.add('active');
+                    
+                    // Animate in new step
+                    setTimeout(() => {
+                        newStepEl.style.opacity = '1';
+                        newStepEl.style.transform = 'translateX(0)';
+                    }, 50);
+                    
+                    this.currentStep = newStep;
+                    this.updateProgress();
+                }, 200);
+            }
+
+            updateProgress() {
+                const progressFill = document.getElementById('progressFill');
+                const progressText = document.getElementById('progressText');
+                
+                const percentage = (this.currentStep / this.totalSteps) * 100;
+                progressFill.style.width = `${percentage}%`;
+                progressText.textContent = `Step ${this.currentStep} of ${this.totalSteps}`;
+            }
+
+            validateName() {
+                const name = document.getElementById('name').value.trim();
+                const error = document.getElementById('nameError');
+                
+                if (name.length < 2) {
+                    error.textContent = 'Please enter a valid name';
+                    return false;
+                }
+                
+                error.textContent = '';
+                return true;
+            }
+
+            validatePhone() {
+                const phone = document.getElementById('phone').value.trim();
+                const error = document.getElementById('phoneError');
+                const phoneRegex = /^[6-9]\d{9}$/;
+                
+                if (!phoneRegex.test(phone)) {
+                    error.textContent = 'Please enter a valid 10-digit phone number';
+                    return false;
+                }
+                
+                error.textContent = '';
+                return true;
+            }
+
+            calculateEstimate() {
+                // Base amounts based on space type and size
+                let baseAmount = 300000; // 3 lakh base
+                
+                // Adjust based on space type
+                const spaceMultipliers = {
+                    'flat': 1,
+                    'bungalow': 1.5,
+                    'office': 1.2,
+                    'hotel': 2,
+                    'healthcare': 1.8,
+                    'showroom': 1.6,
+                    'other': 1.3
+                };
+                
+                // Adjust based on space size
+                const sizeMultipliers = {
+                    'less-500': 0.7,
+                    '500-1000': 1,
+                    '1000-2000': 1.8,
+                    '2000-plus': 2.5
+                };
+                
+                // Style multipliers
+                const styleMultipliers = {
+                    'modern': 1,
+                    'traditional': 1.2,
+                    'contemporary': 1.8,
+                    'not-sure': 1.1
+                };
+                
+                const spaceType = this.formData.spaceType || 'flat';
+                const spaceSize = this.formData.spaceSize || '500-1000';
+                const designStyle = this.formData.designStyle || 'modern';
+                
+                baseAmount *= (spaceMultipliers[spaceType] || 1);
+                baseAmount *= (sizeMultipliers[spaceSize] || 1);
+                baseAmount *= (styleMultipliers[designStyle] || 1);
+                
+                // Add some randomization (±20%)
+                const variation = 0.8 + (Math.random() * 0.4);
+                baseAmount *= variation;
+                
+                // Round to nearest 25,000
+                const roundedAmount = Math.round(baseAmount / 25000) * 25000;
+                
+                return roundedAmount;
+            }
+
+            async handleCalculate() {
+                // Validate contact details
+                const isNameValid = this.validateName();
+                const isPhoneValid = this.validatePhone();
+
+                if (!isNameValid || !isPhoneValid) {
+                    return;
+                }
+
+                // Collect contact info
+                this.formData.name = document.getElementById('name').value.trim();
+                this.formData.phone = document.getElementById('phone').value.trim();
+
+                // Show loading state
+                document.querySelector('[data-step="6"]').classList.remove('active');
+                document.getElementById('loadingState').style.display = 'block';
+
+                // Submit form data in background (optional)
+                this.submitFormInBackground();
+
+                // Simulate calculation time
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                // Calculate and show estimate
+                this.showEstimate();
+            }
+
+            async submitFormInBackground() {
+                try {
+                    // Prepare form data for submission
+                    const formData = new FormData();
+                    
+                    // Add all collected data
+                    Object.keys(this.formData).forEach(key => {
+                        formData.append(key, this.formData[key]);
+                    });
+                    
+                    // Add a subject line
+                    formData.append('_subject', 'New Interior Design Estimate Request');
+                    
+                    // Submit to Formspree (replace with your actual form endpoint)
+                    const response = await fetch('https://formspree.io/f/xjkrylea', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // Show success message
+                        document.getElementById('successMessage').style.display = 'block';
+                    }
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    // Continue to show estimate even if submission fails
+                }
+            }
+
+            showEstimate() {
+                document.getElementById('loadingState').style.display = 'none';
+                
+                // Calculate estimate
+                const estimate = this.calculateEstimate();
+                const formattedEstimate = estimate.toLocaleString('en-IN');
+                
+                // Store estimate
+                this.formData.estimate = formattedEstimate;
+                
+                // Display estimate
+                document.getElementById('estimateAmount').textContent = `₹${formattedEstimate}`;
+                
+                // Show final step
+                document.querySelector('[data-step="7"]').classList.add('active');
+                
+                // Setup WhatsApp button
+                this.setupWhatsAppButton();
+            }
+
+            setupWhatsAppButton() {
+                const whatsappBtn = document.getElementById('whatsappBtn');
+                const message = encodeURIComponent(
+                    `Hi! I just completed your interior design estimate form. My estimated budget is ₹${this.formData.estimate}. I'd like to discuss my ${this.formData.spaceType} project. My name is ${this.formData.name}.`
+                );
+                
+                whatsappBtn.href = `https://wa.me/919974818866?text=${message}`;
+            }
+        }
+
+        // Initialize the form when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new EstimateForm();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Khushi Interior | Residential </title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="" />
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="/images/fav.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- script
+    ================================================== -->
+    <script src="/js/modernizr.js"></script>
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            padding-top: 180px;
+        }
+
+/* Simple Slide Carousel Styles */
+.carousel-container {
+    position: relative;
+    padding: 50px 0;
+}
+
+.carousel-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.carousel-inner {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+}
+
+.carousel-item {
+    transition: transform 0.6s ease-in-out;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+/* Mobile carousel adjustments */
+@media (max-width: 768px) {
+    .carousel-container {
+        margin-top: 120px;
+        padding: 40px 0;
+    }
+    
+    .carousel-wrapper {
+        max-width: 90%;
+        padding: 0 15px;
+    }
+    
+    .carousel-inner {
+        border-radius: 15px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        padding: 8px;
+    }
+    
+    .carousel-item img {
+        height: 320px;
+        border-radius: 12px;
+    }
+    
+    /* Simple slide transition for mobile */
+    .carousel-item {
+        transition: transform 0.6s ease-in-out;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-wrapper {
+        max-width: 95%;
+    }
+    
+    .carousel-item img {
+        height: 280px;
+    }
+
+    body {
+        padding-top: 60px;
+    }
+}
+
+        /* Content Section */
+        .content-section {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: black;
+            margin-bottom: 2rem;
+            position: relative;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+        }
+
+       
+        .content-text {
+            font-size: 1.1rem;
+            color: black;
+            line-height: 1.8;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+ 
+        .cta-button {
+            background: red;
+            color: white;
+            padding: 8px 20px;
+            border: 2px solid red;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .cta-button:hover {
+            background: none;
+            color: red;
+        }
+
+     
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+                     
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+
+     
+    </style>
+  </head>
+  <body
+    class="bg-body"
+    data-bs-spy="scroll"
+    data-bs-target="#navbar"
+    data-bs-root-margin="0px 0px -40%"
+    data-bs-smooth-scroll="true"
+    tabindex="0"
+  >
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/index.html">
+          <img src="/images/Logo.png" alt="Logo" id="mainlogo" />
+        </a>
+
+        <a
+          href="https://wa.me/919974818866"
+          target="_blank"
+          class="phone-number mt-3"
+          ><span class="phone-number-text">Get in touch with us:</span> <br />
+          <span class="fw-bold text-danger animated-number"> +91 99748 18866</span></a
+        >
+      </div>
+    </nav>
+
+    <!-- Premium Auto Carousel Section -->
+    <div class="carousel-container">
+        <div class="carousel-wrapper">
+            <div id="serviceCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/images/interior/1.jpg" alt="Modern Interior Design 1" loading="lazy" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/interior/2.jpg" alt="Modern Interior Design 2" loading="lazy" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/interior/3.jpg" alt="Modern Interior Design 3" loading="lazy" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/interior/4.jpg" alt="Modern Interior Design 4" loading="lazy" class="d-block w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="section-title">Residential Interior Design</h1>
+                    <div class="content-text textlight">
+                        Your home should feel like you comfortable, functional, and well-designed. That’s exactly what we create.
+                        <br><br>
+                        We design residential spaces that work for real life. Whether it’s a 3BHK flat, a villa, or a family bungalow, we plan every detail to suit your lifestyle, routines, and personal taste.
+                        <br><br>
+                        From space planning and colour selection to furniture, lighting, and décor we handle it all. We also work around what matters most to you: natural light, ventilation, vastu, storage, durability, and of course, style.
+                        <br><br>
+                        Whether you’re starting from scratch or updating one room, we’re here to help you make it better.
+                        <a href="/form.html" target="_blank" class="cta-button mt-4">Get Quotation Now!</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer
+      style="
+        margin: 0;
+        padding: 30px 0;
+        background-color: rgba(231, 6, 6, 0.918);
+        font-family: 'Poppins';
+        text-align: center;
+        width: 100vw;
+        position: relative;
+        left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+      "
+    >
+      © 2035 Khushi Interior, All rights reserved.
+    </footer>
+
+    <!-- Bootstrap 5 JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Enhanced carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize carousel with Bootstrap 5
+            const carouselElement = document.getElementById('serviceCarousel');
+            
+            if (carouselElement) {
+                const carousel = new bootstrap.Carousel(carouselElement, {
+                    interval: 2100, // 5 seconds - slower for better UX
+                    wrap: true,
+                    touch: true,
+                    ride: 'carousel'
+                });
+
+                // Pause on hover for better UX
+                carouselElement.addEventListener('mouseenter', function() {
+                    carousel.pause();
+                });
+
+                carouselElement.addEventListener('mouseleave', function() {
+                    carousel.cycle();
+                });
+
+                // Optimized mobile touch support
+                if (window.innerWidth <= 768) {
+                    let startX = 0;
+                    let endX = 0;
+                    let startY = 0;
+                    let endY = 0;
+
+                    carouselElement.addEventListener('touchstart', function(e) {
+                        startX = e.touches[0].clientX;
+                        startY = e.touches[0].clientY;
+                    }, { passive: true });
+
+                    carouselElement.addEventListener('touchend', function(e) {
+                        endX = e.changedTouches[0].clientX;
+                        endY = e.changedTouches[0].clientY;
+                        handleSwipe();
+                    }, { passive: true });
+
+                    function handleSwipe() {
+                        const threshold = 100; // Higher threshold for more intentional swipes
+                        const diffX = startX - endX;
+                        const diffY = Math.abs(startY - endY);
+
+                        // Only trigger if horizontal swipe is greater than vertical
+                        if (Math.abs(diffX) > threshold && diffY < 120) {
+                            if (diffX > 0) {
+                                carousel.next();
+                            } else {
+                                carousel.prev();
+                            }
+                        }
+                    }
+                }
+
+                console.log('Carousel initialized successfully');
+            } else {
+                console.error('Carousel element not found');
+            }
+        });
+
+        // CTA button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function(e) {
+                    // WhatsApp link is already set, let it work naturally
+                    console.log('CTA clicked - opening WhatsApp');
+                });
+            }
+        });
+    </script>
+    
+    <!-- Your existing scripts -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>
