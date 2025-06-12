@@ -64,36 +64,47 @@
     </nav>
 
     <section
-      id="scrolling"
-      class="container-fluid d-flex align-items-center position-relative"
-      style="height: 90vh; padding-left: 0; padding-right: 0;"
+        id="scrolling"
+        class="container-fluid d-flex align-items-center position-relative"
+        style="height: 90vh; padding-left: 0; padding-right: 0;"
     >
-      <!-- Video background within section bounds -->
-      <video class="bg-video-layer" autoplay muted loop playsinline>
-        <source src="images/video.mp4" type="video/mp4" />
-      </video>
+        <!-- Poster image - shows immediately -->
+        <div class="bg-poster" id="posterImage"></div>
 
-      <!-- Overlay -->
-      <div class="bg-overlay"></div>
+        <!-- Video background - loads in background -->
+        <video 
+            class="bg-video-layer" 
+            autoplay 
+            muted 
+            loop 
+            playsinline 
+            preload="metadata"
+            id="heroVideo"
+        >
+            <source src="images/video.mp4" type="video/mp4" />
+        </video>
 
-      <!-- Foreground content -->
-      <div class="container position-relative z-2">
-        <div class="row">
-          <div class="col-lg-6 d-flex flex-column justify-content-center">
-            <div style="padding: 2rem; border-radius: 8px">
-              <h1 class="text-white fw-bold display-4 mb-4" id="maintext">
-                Modern Interior<br />Designs for Homes<br />& Workspaces
-              </h1>
-              <a href="form.html" target="_blank" class="btn btn-light px-4 py-2 estimatebutton"
-                >Get a
-                <span style="color: red; font-weight: 600"
-                  >Free Estimate</span
-                ></a
-              >
+        <!-- Optional: Video status indicator -->
+        <div class="video-status" id="videoStatus">Loading video...</div>
+
+        <!-- Overlay -->
+        <div class="bg-overlay"></div>
+
+        <!-- Foreground content -->
+        <div class="container position-relative z-2">
+            <div class="row">
+                <div class="col-lg-6 d-flex flex-column justify-content-center">
+                    <div style="padding: 2rem; border-radius: 8px">
+                        <h1 class="text-white fw-bold display-4 mb-4" id="maintext">
+                            Modern Interior<br />Designs for Homes<br />& Workspaces
+                        </h1>
+                        <a href="#" class="btn btn-light px-4 py-2 estimatebutton">
+                            Get a <span style="color: red; font-weight: 600">Free Estimate</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
 
     <section id="company-services" class="padding-large">
@@ -457,6 +468,59 @@
     >
       © 2035 Khushi Interior, All rights reserved.
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('heroVideo');
+            const poster = document.getElementById('posterImage');
+            const status = document.getElementById('videoStatus');
+
+            // Function to transition from poster to video
+            function transitionToVideo() {
+                video.classList.add('loaded');
+                poster.classList.add('hide');
+                status.textContent = 'Video loaded';
+                
+                // Hide status after 2 seconds
+                setTimeout(() => {
+                    status.style.opacity = '0';
+                }, 2000);
+            }
+
+            // Video loading events
+            video.addEventListener('canplay', function() {
+                console.log('Video can start playing');
+                transitionToVideo();
+            });
+
+            video.addEventListener('loadeddata', function() {
+                console.log('Video data loaded');
+                transitionToVideo();
+            });
+
+            // Handle video errors
+            video.addEventListener('error', function() {
+                console.warn('Video failed to load, keeping poster image');
+                status.textContent = 'Video unavailable';
+                setTimeout(() => {
+                    status.style.opacity = '0';
+                }, 3000);
+            });
+
+            // If video is already loaded (cached)
+            if (video.readyState >= 2) {
+                transitionToVideo();
+            }
+
+            // Ensure video plays (handle autoplay restrictions)
+            video.addEventListener('canplaythrough', function() {
+                video.play().catch(function(error) {
+                    console.warn('Autoplay prevented:', error);
+                    // Video will still be visible, just not playing
+                });
+            });
+        });
+    </script>
 
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>

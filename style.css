@@ -311,27 +311,73 @@ body.loading {
   #scrolling {
     overflow: hidden;
     position: relative;
-  }
-  
-  /* Background video layer */
-  .bg-video-layer {
+}
+
+/* Poster image - shows immediately */
+.bg-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/poster.png'); /* Your poster image */
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* Hide poster when video is ready */
+.bg-poster.hide {
+    opacity: 0;
+}
+
+/* Background video layer - starts hidden */
+.bg-video-layer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -2;
+    z-index: -3;
     pointer-events: none;
-  }
-  
-  /* Dark overlay over video */
-  .bg-overlay {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* Show video when loaded */
+.bg-video-layer.loaded {
+    opacity: 1;
+    z-index: -2;
+}
+
+/* Dark overlay over background */
+.bg-overlay {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.4);
     z-index: -1;
-  }
+}
+
+/* Main text style */
+#maintext {
+    font-size: clamp(2rem, 8vw, 70px);
+    width: max-content;
+}
+
+/* Optional: Loading indicator */
+.video-status {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    font-size: 12px;
+    opacity: 0.7;
+    z-index: 1;
+}
+
   
   /* Main text style */
   #maintext {
