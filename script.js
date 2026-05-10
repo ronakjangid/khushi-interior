@@ -200,7 +200,7 @@ document.addEventListener('click', function(e) {
 
     // On service pages, go to contact
     if (document.documentElement.getAttribute('data-page-type') === 'services') {
-        window.location.href = '/contact.html';
+        window.location.href = '../contact.html';
         return;
     }
 
