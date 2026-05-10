@@ -49,28 +49,26 @@ const init = () => {
     });
 
 
-    // ====================== PREMIUM IMAGE REVEALS ======================
-    // Subtle fade + scale on all images as they enter viewport
-    gsap.utils.toArray('img').forEach(img => {
-        if (img.closest('#hero')) return; // Skip hero video/image if needed
+gsap.utils.toArray('img').forEach(img => {
+    if (img.closest('#hero')) return;
+    if (img.closest('.images-sliding-rows')) return;
+    if (img.closest('.footer-logo-symb')) return;
 
-        gsap.fromTo(img, {
-            opacity: 0.65,
-            scale: 1.04,
-            y: 40
-        }, {
-            scrollTrigger: {
-                trigger: img,
-                start: "top 88%",
-                toggleActions: "play none none reverse",
-            },
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            duration: 1.1,
-            ease: "power2.out"
-        });
+    gsap.fromTo(img, {
+        opacity: 0.8,
+        y: 20
+    }, {
+        scrollTrigger: {
+            trigger: img,
+            start: "top 92%",
+            toggleActions: "play none none none",
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out"
     });
+});
 
 
 // ====================== FINAL WORKING VERSION ======================
