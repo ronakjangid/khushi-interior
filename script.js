@@ -53,6 +53,8 @@ gsap.utils.toArray('img').forEach(img => {
     if (img.closest('#hero')) return;
     if (img.closest('.images-sliding-rows')) return;
     if (img.closest('.footer-logo-symb')) return;
+    if (img.closest('#services-grid')) return; // ADD THIS LINE
+
 
     gsap.fromTo(img, {
         opacity: 0.8,

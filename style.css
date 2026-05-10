@@ -2665,7 +2665,7 @@ section.services-section .service-icon {
 
     html:not([data-page-type=services][data-page-kind=section]) #services-grid li {
         transform: rotate(-3deg);
-        outline: 8px solid var(--bg-color-main)
+        box-shadow: 0 0 0 8px var(--bg-color-main);
     }
 
     html:not(.is-mobile):not([data-page-type=services][data-page-kind=section]) #services-grid li {
