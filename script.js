@@ -35,6 +35,10 @@ const smoother = ScrollSmoother.create({
     smoothTouch: 0
 });
 
+document.querySelectorAll('#services-grid img').forEach(img => {
+    img.removeAttribute('data-speed');
+});
+
     // ====================== HERO SHRINK ANIMATION ======================
 if (!isMobile) {
     gsap.to("#hero-bg", {

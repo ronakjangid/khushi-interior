@@ -2537,7 +2537,9 @@ span.num-divider::before {
     position: relative;
     display: grid;
     place-content: center;
-    aspect-ratio: 7/14
+    aspect-ratio: 7/14;
+    will-change: transform;
+
 }
 
 h3.section-title strong {
