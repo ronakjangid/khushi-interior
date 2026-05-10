@@ -79,6 +79,10 @@
     color: var(--text-color)
 }
 
+.cursor-default{
+    cursor: default;
+}
+
 @media (max-width: 1024px) {
     #services {
         padding-bottom: 0;
