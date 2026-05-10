@@ -25,17 +25,18 @@ const init = () => {
     }
 
     // ====================== SMOOTH SCROLL (GSAP) ======================
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+const isMobile = html.classList.contains('is-mobile');
 
-    const smoother = ScrollSmoother.create({
-        wrapper: "#smooth-wrapper",
-        content: "#smooth-content",
-        smooth: 1,
-        effects: true,
-        smoothTouch: 0.2
-    });
+const smoother = ScrollSmoother.create({
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
+    smooth: isMobile ? 0 : 1,
+    effects: !isMobile,
+    smoothTouch: 0
+});
 
     // ====================== HERO SHRINK ANIMATION ======================
+if (!isMobile) {
     gsap.to("#hero-bg", {
         scrollTrigger: {
             trigger: "#hero",
@@ -47,7 +48,7 @@ const init = () => {
         borderRadius: "40px",
         ease: "none"
     });
-
+}
 
 gsap.utils.toArray('img').forEach(img => {
     if (img.closest('#hero')) return;
