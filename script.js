@@ -1,3 +1,6 @@
+
+
+
 // Mobile detection and nav functionality
 const init = () => {
     const html = document.documentElement;
@@ -5,7 +8,7 @@ const init = () => {
 
     // Detect mobile/tablet
     function checkMobile() {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1024) {
             html.classList.add('is-mobile');
         } else {
             html.classList.remove('is-mobile');

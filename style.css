@@ -987,11 +987,11 @@ button#call-button {
 .footer-logo-symb {
     display: flex;
     justify-content: center;
-    height: clamp(8rem, 16vw, 15rem)
+    height: clamp(8rem, 16vw, 15rem);
 }
 
 .footer-logo-symb svg {
-    fill: #000
+    fill: #000;
 }
 
 .footer-col__title {
